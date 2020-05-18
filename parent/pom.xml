@@ -19,7 +19,6 @@
         <slf4j.version>1.7.25</slf4j.version>
 
         <masterjava.config>/apps/masterjava/config/</masterjava.config>
-
         <dependency.locations.enabled>false</dependency.locations.enabled>
     </properties>
 
@@ -62,19 +61,6 @@
                 </executions>
             </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <directory>${masterjava.config}</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>logback.xml</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
 
         <testResources>
             <testResource>
