@@ -42,8 +42,8 @@ https://tomcat.apache.org/tomcat-8.0-doc/jdbc-pool.html
               testOnBorrow="true"
               logAbandoned="true"
               driverClassName="org.postgresql.Driver"
-              username="postgres"
-              password="postgres"
+              username="user"
+              password="password"
               url="jdbc:postgresql://localhost:5432/masterjava"/>
 
 </Context>

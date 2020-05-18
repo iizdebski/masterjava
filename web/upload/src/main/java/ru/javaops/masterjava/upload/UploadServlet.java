@@ -29,16 +29,15 @@ public class UploadServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       out(req, resp, "", CHUNK_SIZE);
+        out(req, resp, "", CHUNK_SIZE);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String message;
         int chunkSize = CHUNK_SIZE;
-
         try {
+//            http://docs.oracle.com/javaee/6/tutorial/doc/glraq.html
             chunkSize = Integer.parseInt(req.getParameter("chunkSize"));
             if (chunkSize < 1) {
                 message = "Chunk Size must be > 1";
@@ -53,10 +52,10 @@ public class UploadServlet extends HttpServlet {
                     engine.process("result", webContext, resp.getWriter());
                     return;
                 }
-        }
-    } catch (Exception e) {
-       log.info(e.getMessage(), e);
-       message = e.toString();
+            }
+        } catch (Exception e) {
+            log.info(e.getMessage(), e);
+            message = e.toString();
         }
         out(req, resp, message, chunkSize);
     }
