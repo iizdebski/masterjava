@@ -11,6 +11,7 @@ import java.util.List;
 @RegisterMapperFactory(EntityMapperFactory.class)
 public abstract class UserDao implements AbstractDao {
 
+
     public User insert(User user) {
         if (user.isNew()) {
             int id = insertGeneratedId(user);

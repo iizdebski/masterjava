@@ -12,3 +12,5 @@ CREATE TABLE users (
   email     TEXT NOT NULL,
   flag      user_flag NOT NULL
 );
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "user";
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public to "user";
