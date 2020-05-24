@@ -12,5 +12,6 @@ CREATE TABLE users (
   email     TEXT NOT NULL,
   flag      user_flag NOT NULL
 );
+CREATE UNIQUE INDEX email_idx ON users (email);
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "user";
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public to "user";
+GRANT SELECT, UPDATE, USAGE ON ALL SEQUENCES IN SCHEMA public to "user";
