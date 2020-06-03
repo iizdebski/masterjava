@@ -1,4 +1,4 @@
-package ru.javaops.masterjava.service;
+package ru.javaops.masterjava.service.mail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ public class MailServiceExecutor {
     private final ExecutorService mailExecutor = Executors.newFixedThreadPool(8);
 
     public GroupResult sendToList(final String template, final Set<String> emails) throws Exception {
-
         final CompletionService<MailResult> completionService = new ExecutorCompletionService<>(mailExecutor);
 
         List<Future<MailResult>> futures = emails.stream()
@@ -29,7 +28,7 @@ public class MailServiceExecutor {
 
             @Override
             public GroupResult call() {
-                while(!futures.isEmpty()) {
+                while (!futures.isEmpty()) {
                     try {
                         Future<MailResult> future = completionService.poll(10, TimeUnit.SECONDS);
                         if (future == null) {
@@ -52,11 +51,10 @@ public class MailServiceExecutor {
                     }
                 }
 /*
-
                 for (Future<MailResult> future : futures) {
                     MailResult mailResult;
                     try {
-                        mailResult = fture.get(10, TimeUnit.SECONDS);
+                        mailResult = future.get(10, TimeUnit.SECONDS);
                     } catch (InterruptedException e) {
                         return cancelWithFail(INTERRUPTED_EXCEPTION);
                     } catch (ExecutionException e) {
@@ -73,21 +71,21 @@ public class MailServiceExecutor {
                         }
                     }
                 }
- */
+*/
                 return new GroupResult(success, failed, null);
             }
+
             private GroupResult cancelWithFail(String cause) {
-                    futures.forEach(f -> f.cancel(true));
-                    return new GroupResult(success, failed, cause);
+                futures.forEach(f -> f.cancel(true));
+                return new GroupResult(success, failed, cause);
             }
         }.call();
     }
 
-
     // dummy realization
     public MailResult sendToUser(String template, String email) throws Exception {
         try {
-            Thread.sleep(500); //delay
+            Thread.sleep(500);  //delay
         } catch (InterruptedException e) {
             // log cancel;
             return null;
@@ -125,8 +123,7 @@ public class MailServiceExecutor {
     public static class GroupResult {
         private final int success; // number of successfully sent email
         private final List<MailResult> failed; // failed emails with causes
-        private final String failedCause; // global fail cause
-
+        private final String failedCause;  // global fail cause
 
         public GroupResult(int success, List<MailResult> failed, String failedCause) {
             this.success = success;

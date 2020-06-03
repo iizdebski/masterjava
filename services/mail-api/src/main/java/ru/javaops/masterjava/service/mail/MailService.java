@@ -5,10 +5,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.util.List;
 
-/**
- * gkislin
- * 15.11.2016
- */
 @WebService
 public interface MailService {
 
