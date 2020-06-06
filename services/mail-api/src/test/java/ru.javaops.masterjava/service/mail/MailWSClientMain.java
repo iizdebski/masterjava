@@ -1,11 +1,11 @@
 package ru.javaops.masterjava.service.mail;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 
 public class MailWSClientMain {
     public static void main(String[] args) {
-        MailWSClient.sendMail(
-                ImmutableList.of(new Addressee("To <iizdepskyy112@gmail.com>")),
-                ImmutableList.of(new Addressee("Copy <johnystartup@gmail.com>")), "Subject", "Body");
+        MailWSClient.sendToGroup(
+                ImmutableSet.of(new Addressee("To <masterjava@javaops.ru>")),
+                ImmutableSet.of(new Addressee("Copy <masterjava@javaops.ru>")), "Subject", "Body");
     }
 }
