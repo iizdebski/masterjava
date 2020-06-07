@@ -19,4 +19,10 @@ public interface MailService {
             @WebParam(name = "cc") Set<Addressee> cc,
             @WebParam(name = "subject") String subject,
             @WebParam(name = "body") String body);
+
+    @WebMethod
+    GroupResult sendBulk(
+            @WebParam(name="to") Set<Addressee> to,
+            @WebParam(name="subject") String subject,
+            @WebParam(name="body") String body);
 }
