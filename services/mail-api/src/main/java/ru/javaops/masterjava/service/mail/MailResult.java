@@ -8,7 +8,6 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class MailResult {
     public static final String OK = "OK";
 

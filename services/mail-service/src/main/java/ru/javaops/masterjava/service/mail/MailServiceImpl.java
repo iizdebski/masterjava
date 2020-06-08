@@ -12,7 +12,7 @@ public class MailServiceImpl implements MailService {
     }
 
     @Override
-    public GroupResult sendBulk(Set<Addressee> to, String subject, String  body) {
+    public GroupResult sendBulk(Set<Addressee> to, String subject, String body) {
         return MailServiceExecutor.sendBulk(to, subject, body);
     }
 }

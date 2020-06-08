@@ -20,5 +20,5 @@ public abstract class MailCaseDao implements AbstractDao {
 
     @SqlUpdate("INSERT INTO mail_hist (list_to, list_cc, subject, state, datetime)  VALUES (:listTo, :listCc, :subject, :state, :datetime)")
     @GetGeneratedKeys
-    public abstract int insert(@BindBean MailCase mail);
+    public abstract int insert(@BindBean MailCase mails);
 }

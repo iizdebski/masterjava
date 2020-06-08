@@ -9,11 +9,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class GroupResult {
-    private int success; // number of successfully sent emails
+    private int success; // number of successfully sent email
     private List<MailResult> failed; // failed emails with causes
-    private String failedCause; // global fail cause
+    private String failedCause;  // global fail cause
 
     @Override
     public String toString() {
