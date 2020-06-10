@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CityTestData {
     public static City KIEV;
-    public static City MINSK;
+    public static City TERNOPIL;
     public static City MOSCOW;
     public static City SPB;
 
@@ -16,12 +16,12 @@ public class CityTestData {
 
     public static void init() {
         KIEV = new City("kiv", "Киев");
-        MINSK = new City("mnsk", "Минск");
+        TERNOPIL = new City("tern", "Тернополь");
         MOSCOW = new City("mow", "Москва");
         SPB = new City("spb", "Санкт-Петербург");
         CITIES = ImmutableMap.of(
                 KIEV.getRef(), KIEV,
-                MINSK.getRef(), MINSK,
+                TERNOPIL.getRef(), TERNOPIL,
                 MOSCOW.getRef(), MOSCOW,
                 SPB.getRef(), SPB);
     }

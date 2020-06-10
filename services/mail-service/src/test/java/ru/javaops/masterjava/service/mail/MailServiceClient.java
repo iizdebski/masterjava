@@ -16,7 +16,7 @@ public class MailServiceClient {
 
         MailService mailService = service.getPort(MailService.class);
 
-        String state = mailService.sendToGroup(ImmutableSet.of(new Addressee("masterjava@javaops.ru", null)), null,
+        String state = mailService.sendToGroup(ImmutableSet.of(new Addressee("iizdepskyy112@gmail.com", null)), null,
                 "Group mail subject", "Group mail body");
         System.out.println("Group mail state: " + state);
 
