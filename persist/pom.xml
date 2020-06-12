@@ -33,7 +33,8 @@
                 </executions>
             </plugin>
 
-            <!--http://www.liquibase.org/documentation/maven/            -->
+            <!--
+            http://www.liquibase.org/documentation/maven/
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
@@ -44,8 +45,8 @@
                     <url>jdbc:postgresql://localhost:5432/masterjava</url>
                     <username>user</username>
                     <password>password</password>
-                    <!--<propertyFile>${masterjava.config}/liquibase.properties</propertyFile>-->
-                    <!--<propertyFileWillOverride>true</propertyFileWillOverride>-->
+                    <propertyFile>${masterjava.config}/liquibase.properties</propertyFile>
+                    <propertyFileWillOverride>true</propertyFileWillOverride>
                 </configuration>
                 <executions>
                     <execution>
@@ -55,7 +56,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
