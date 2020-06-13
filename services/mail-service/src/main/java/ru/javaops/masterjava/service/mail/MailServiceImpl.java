@@ -1,6 +1,5 @@
 package ru.javaops.masterjava.service.mail;
 
-import com.sun.xml.ws.developer.StreamingAttachment;
 import ru.javaops.masterjava.web.WebStateException;
 
 import javax.jws.WebService;
