@@ -29,4 +29,5 @@ public interface MailService {
             @WebParam(name = "subject") String subject,
             @WebParam(name = "body") String body,
             @WebParam(name = "attachments") List<Attachment> attachments) throws WebStateException;
+
 }

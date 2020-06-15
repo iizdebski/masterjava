@@ -28,9 +28,8 @@ public class MailServiceClient {
                 "Group mail subject", "Group mail body", attachments);
         System.out.println("Group mail state: " + state);
 
-
         GroupResult groupResult = mailService.sendBulk(ImmutableSet.of(
-                new Addressee("Мастер Java <iizdepskyy112@gmail.com>"),
+                new Addressee("Мастер Java <petrenkov1@yahoo.com>"),
                 new Addressee("Bad Email <bad_email.ru>")), "Bulk mail subject", "Bulk mail body", attachments);
         System.out.println("\nBulk mail groupResult:\n" + groupResult);
     }
