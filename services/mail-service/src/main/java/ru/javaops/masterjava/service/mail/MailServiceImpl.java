@@ -4,6 +4,7 @@ import ru.javaops.masterjava.web.AuthUtil;
 import ru.javaops.masterjava.web.WebStateException;
 
 import javax.annotation.Resource;
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import java.util.Set;
 )
 //@StreamingAttachment(parseEagerly=true, memoryThreshold=40000L)
 @MTOM
+@HandlerChain(file = "mailWsHandlers.xml")
 public class MailServiceImpl implements MailService {
 
     @Resource

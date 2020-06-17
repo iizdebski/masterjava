@@ -61,7 +61,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
@@ -123,4 +122,5 @@
         <tag>HEAD</tag>
         <url>https://github.com/vitchurb/masterjava.git</url>
     </scm>
+
 </project>
