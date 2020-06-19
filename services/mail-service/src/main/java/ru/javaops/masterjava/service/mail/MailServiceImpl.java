@@ -16,18 +16,17 @@ import java.util.Set;
 @HandlerChain(file = "mailWsHandlers.xml")
 public class MailServiceImpl implements MailService {
 
-    // @Resource
-    // private WebServiceContext wsContext;
+//    @Resource
+//    private WebServiceContext wsContext;
 
     @Override
     public String sendToGroup(Set<Addressee> to, Set<Addressee> cc, String subject, String body, List<Attachment> attachments) throws WebStateException {
 /*
-
         MessageContext mCtx = wsContext.getMessageContext();
         Map<String, List<String>> headers = (Map<String, List<String>>) mCtx.get(MessageContext.HTTP_REQUEST_HEADERS);
 
-        // HttpServletRequest request = (HttpServletRequest) mCtx.get(MessageContext.SERVLET_REQUEST);
-        // HttpServletResponse response = (HttpServletResponse) mCtx.get(MessageContext.SERVLET_RESPONSE);
+        HttpServletRequest request = (HttpServletRequest) mCtx.get(MessageContext.SERVLET_REQUEST);
+        HttpServletResponse response = (HttpServletResponse) mCtx.get(MessageContext.SERVLET_RESPONSE);
 
         int code = AuthUtil.checkBasicAuth(headers, MailWSClient.AUTH_HEADER);
         if (code != 0) {
