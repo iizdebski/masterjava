@@ -68,6 +68,6 @@ public class JmsSendServlet extends HttpServlet {
         TextMessage testMessage = session.createTextMessage();
         testMessage.setText(subject);
         producer.send(testMessage);
-        return "Successfully send JMS message";
+        return "Successfully sent JMS message";
     }
 }

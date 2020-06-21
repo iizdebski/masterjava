@@ -1,5 +1,6 @@
 package ru.javaops.masterjava.web;
 
+
 import lombok.Getter;
 import ru.javaops.masterjava.ExceptionType;
 

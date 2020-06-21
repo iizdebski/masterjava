@@ -85,7 +85,7 @@
                 contentType: false,
                 processData: false
             };
-        } else if (transport === "REST" || transport === "JMS"){
+        } else if (transport === "REST" || transport === "JMS") {
             param = {
                 url: (transport === "REST" ? "/mail/rest/send" : "sendJms"),
                 data: "users=" + users + "&subject=" + $("#subject").val() + "&body=" + $("#body").val(),

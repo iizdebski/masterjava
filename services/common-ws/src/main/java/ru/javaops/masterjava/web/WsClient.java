@@ -35,7 +35,7 @@ public class WsClient<T> {
             endpoint = config.getString("endpoint") + endpointAddress;
             serverDebugLevel = config.getEnum(Level.class, "server.debugLevel");
 
-            //          https://github.com/typesafehub/config/issues/282
+//          https://github.com/typesafehub/config/issues/282
             if (!config.getIsNull("user") && !config.getIsNull("password")) {
                 user = config.getString("user");
                 password = config.getString("password");
@@ -51,7 +51,7 @@ public class WsClient<T> {
             return authHeader != null;
         }
 
-        public boolean hasHeader() {
+        public boolean hasHandler() {
             return clientLoggingHandler != null;
         }
     }
@@ -83,7 +83,7 @@ public class WsClient<T> {
         if (hostConfig.hasAuthorization()) {
             setAuth(port, hostConfig.user, hostConfig.password);
         }
-        if (hostConfig.hasHeader()) {
+        if (hostConfig.hasHandler()) {
             setHandler(port, hostConfig.clientLoggingHandler);
         }
         return port;

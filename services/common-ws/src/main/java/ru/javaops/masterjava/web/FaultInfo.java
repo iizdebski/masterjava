@@ -17,6 +17,6 @@ public class FaultInfo {
 
     @Override
     public String toString() {
-       return type.toString();
+        return type.toString();
     }
 }

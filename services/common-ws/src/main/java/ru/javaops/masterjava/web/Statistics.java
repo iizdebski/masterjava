@@ -13,5 +13,6 @@ public class Statistics {
         int ms = (int) (now - startTime);
         log.info(payload + " " + result.name() + " execution time(ms): " + ms);
         // place for statistics staff
+
     }
 }

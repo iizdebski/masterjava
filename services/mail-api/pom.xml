@@ -21,7 +21,7 @@
                 <directory>${masterjava.config}</directory>
                 <includes>
                     <include>wsdl/mailService.wsdl</include>
-                    <include>wsdl/common.wsdl</include>
+                    <include>wsdl/common.xsd</include>
                 </includes>
             </resource>
         </resources>

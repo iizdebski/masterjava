@@ -24,7 +24,7 @@ public class AuthUtil {
             return HttpServletResponse.SC_UNAUTHORIZED;
         } else {
             if (!autHeaders.get(0).equals(basicAuthCredentials)) {
-                log.warn("Wring password access");
+                log.warn("Wrong password access");
                 return HttpServletResponse.SC_FORBIDDEN;
             }
             return 0;

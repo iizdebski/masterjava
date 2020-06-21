@@ -37,13 +37,12 @@
                             <target>
                                 <copy todir="target/mail/WEB-INF/wsdl">
                                     <!--https://ant.apache.org/manual/Types/selectors.html-->
-                                    <fileset dir="${masterjava.config}/wsdl" includes="mailService.wsdl, common.xsd"/>                                   }}">
+                                    <fileset dir="${masterjava.config}/wsdl" includes="mailService.wsdl,common.xsd"/>
                                 </copy>
                             </target>
                         </configuration>
                     </execution>
                 </executions>
-
             </plugin>
         </plugins>
     </build>
@@ -73,7 +72,7 @@
         </dependency>
 
         <dependency>
-             <groupId>org.glassfish.jersey.containers</groupId>
+            <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>${jersey.version}</version>
         </dependency>
@@ -83,23 +82,24 @@
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>${jersey.version}</version>
-        <exclusions>
-            <exclusion>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-            </exclusion>
-        </exclusions>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
             <version>${jersey.version}</version>
-    </dependency>
+        </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-bean-validation</artifactId>
             <version>${jersey.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>

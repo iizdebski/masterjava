@@ -53,7 +53,7 @@ public class JmsMailListener implements ServletContextListener {
             try {
                 connection.close();
             } catch (JMSException ex) {
-            log.warn("Couldn't close JMSConnection: ", ex);
+                log.warn("Couldn't close JMSConnection: ", ex);
             }
         }
         if (listenerThread != null) {
