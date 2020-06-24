@@ -18,7 +18,7 @@ public abstract class UserDao implements AbstractDao {
             int id = insertGeneratedId(user);
             user.setId(id);
         } else {
-            insertWitId(user);
+            insertWithId(user);
         }
         return user;
     }
@@ -26,20 +26,19 @@ public abstract class UserDao implements AbstractDao {
     @SqlQuery("SELECT nextval('user_seq')")
     abstract int getNextVal();
 
-    //@Transaction
+    @Transaction
     public int getSeqAndSkip(int step) {
         int id = getNextVal();
-        DBIProvider.getDBI().useHandle(h -> h.execute("SELECT setval('user_seq', " + (id + step - 1) + ")"));
+        DBIProvider.getDBI().useHandle(h -> h.execute("ALTER SEQUENCE user_seq RESTART WITH " + (id + step)));
         return id;
     }
-
 
     @SqlUpdate("INSERT INTO users (full_name, email, flag, city_ref) VALUES (:fullName, :email, CAST(:flag AS USER_FLAG), :cityRef) ")
     @GetGeneratedKeys
     abstract int insertGeneratedId(@BindBean User user);
 
     @SqlUpdate("INSERT INTO users (id, full_name, email, flag, city_ref) VALUES (:id, :fullName, :email, CAST(:flag AS USER_FLAG), :cityRef) ")
-    abstract void insertWitId(@BindBean User user);
+    abstract void insertWithId(@BindBean User user);
 
     @SqlQuery("SELECT * FROM users ORDER BY full_name, email LIMIT :it")
     public abstract List<User> getWithLimit(@Bind int limit);
@@ -49,11 +48,12 @@ public abstract class UserDao implements AbstractDao {
     @Override
     public abstract void clean();
 
-    // https://habrahabr.ru/post/264281/
+    //    https://habrahabr.ru/post/264281/
     @SqlBatch("INSERT INTO users (id, full_name, email, flag, city_ref) VALUES (:id, :fullName, :email, CAST(:flag AS USER_FLAG), :cityRef)" +
             "ON CONFLICT DO NOTHING")
-//  "ON CONFLICT (email) DO UPDATE SET full_name=:fullName, flag=CAST(:flag AS USER_FLAG)")
+//            "ON CONFLICT (email) DO UPDATE SET full_name=:fullName, flag=CAST(:flag AS USER_FLAG)")
     public abstract int[] insertBatch(@BindBean List<User> users, @BatchChunkSize int chunkSize);
+
 
     public List<User> insertAndGetConflictEmails(List<User> users) {
         int[] result = insertBatch(users, users.size());
